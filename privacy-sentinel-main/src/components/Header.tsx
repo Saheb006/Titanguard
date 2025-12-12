@@ -1,6 +1,7 @@
 import { Shield, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { AuthDialog } from '@/components/AuthDialog';
 import { useState } from 'react';
 
 const navItems = [
@@ -46,9 +47,7 @@ export function Header() {
           {/* Actions */}
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <Button variant="hero-outline" size="sm" className="hidden sm:flex">
-              Login
-            </Button>
+            <AuthDialog />
             <Button variant="hero" size="sm" className="hidden sm:flex">
               Get Extension
             </Button>
@@ -78,14 +77,9 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            <Button
-              variant="hero-outline"
-              size="sm"
-              className="w-full mb-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Login
-            </Button>
+            <div className="w-full mb-2 px-2">
+              <AuthDialog />
+            </div>
             <Button variant="hero" size="sm" className="w-full">
               Get Extension
             </Button>
